@@ -3,13 +3,13 @@ Complete but Unofficial PyTorch Implementation of [Complex-YOLO: Real-time 3D Ob
 
 ## Installation
 #### Clone the project and install requirements
-    $ git clone https://github.com/ghimiredhikura/Complex-YOLO-V3
+    $ git clone https://github.com/ghimiredhikura/Complex-YOLOv3
     $ cd Complex-YOLO-V3/
     $ sudo pip install -r requirements.txt
 
 ## Quickstart
 
-#### Download pretrained weights 
+#### Download pretrained weights [[yolov3](https://drive.google.com/file/d/1e7PCqeV3tS68KtBIUbX34Uhy81XnsYZV/view), [tiny-yolov3](https://drive.google.com/file/d/19Qvpq2kQyjQ5uhQgi-wcWmSqFy4fcvny/view)]
     $ cd checkpoints/
     $ python download_weights.py
     
@@ -18,12 +18,15 @@ Complete but Unofficial PyTorch Implementation of [Complex-YOLO: Real-time 3D Ob
     1. $ python test_detection.py --split=smaples --folder=sampledata  
     2. $ python test_both_side_detection.py --split=smaples --folder=sampledata
 
-#### Demo Video
-[![demo](assets/result_video_bothside.jpg)](https://www.youtube.com/watch?v=JzywsbuXFOg)
+#### Demo Video [[Click to Play](https://www.youtube.com/watch?v=JzywsbuXFOg)]
+[![complex-yolov3_gif][complex-yolov3_gif]](https://youtu.be/JzywsbuXFOg)
+
+[//]: # (Image References)
+[complex-yolov3_gif]: ./assets/complex-yolov3.gif
 
 ## Data Preparation
 
-You can see `sampledata` folder in `data/KITTI/dataset` directory which can be used for testing without downloading whole KITTI dataset. However, if you want to train the model by yourself and check the mAP in validation set just follow the steps below.
+You can see `sampledata` folder in `data/KITTI/dataset` directory which can be used for testing this project without downloading KITTI dataset. However, if you want to train the model by yourself and check the mAP in validation set just follow the steps below.
 
 #### Download the [3D KITTI detection dataset](http://www.cvlibs.net/datasets/kitti/eval_object.php?obj_benchmark=3d) 
 1. Camera calibration matrices of object data set (16 MB)
@@ -46,7 +49,7 @@ Now you have to manage dataset directory structure. Place your dataset into `dat
            ├── velodyne           
 ```
 
-The train/valid split of training dataset as well as sample and test ids of KITTI dataset are in `data/KITTI/ImageSets` directory includes. From training set of 7481 images from KITTI dataset, 6000 images are used for training and remaining 1481 images are used for validation. The mAP result reported in this project are evaluated into this valid set with custom mAP evaluation script with 0.5 iou for each object class. 
+The `train/valid` split of training dataset as well as `sample` and `test` dataset ids are in `data/KITTI/ImageSets` directory. From training set of 7481 images, 6000 images are used for training and remaining 1481 images are used for validation. The mAP results reported in this project are evaluated into this valid set with custom mAP evaluation script with 0.5 iou for each object class. 
 
 #### Verify your download
     $ python check_dataset.py
@@ -101,8 +104,6 @@ mAP (min. 50 IoU)
 | Complex-Tiny-YOLO-v3    | 95.91   |49.29       |78.75    |74.65    |
 
 #### Results 
-| |  |
-|---|---|
 <p align="center"><img src="assets/result1.jpg" width="1246"\></p>
 <p align="center"><img src="assets/result2.jpg" width="1246"\></p>
 <p align="center"><img src="assets/result3.jpg" width="1246"\></p>
